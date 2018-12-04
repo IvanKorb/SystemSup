@@ -1,0 +1,40 @@
+﻿@model Activ
+@using SystemSup.Models
+<h2>Кабинеты</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Новый кабинет</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CabNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CabNumber)
+            @Html.ValidationMessageFor(model => model.CabNumber)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DepartmentId)
+        </div>
+        <div class="editor-label">
+            @Html.DropDownListFor(model => model.DepartmentId, ViewBag.Departments as SelectList)
+            @Html.ValidationMessageFor(model => model.DepartmentId)
+        </div>
+        <br/>
+        
+        <p><input type="submit" value="Добаваить"/></p>
+    </fieldset>
+}
+<br/>
+<table class="table">
+    @foreach (Activ item in ViewBag.Activs)
+    {
+        <tr>
+          
+            <td>@item.Department.Name</td>
+            <td>@item.CabNumber</td>
+            <td>@Html.ActionLink("Удалить", "DeleteActiv", new{id = item.Id}, new { @class = "btn btn-danger btn-sm waves-effect white-text" })</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,24 @@
+﻿@if (ViewContext.HttpContext.User.IsInRole("Модератор"))
+{
+<div class="dropdown show">
+    <a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Заявки
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        @Html.ActionLink("Мои заявки", "Index", "Request", null, new { @class = "nav-link waves-effect dropdown-item" })
+        @Html.ActionLink("Распределить", "Distribute", "Request", null, new { @class = "nav-link waves-effect dropdown-item" })
+        @Html.ActionLink("Новая", "Create", "Request", null, new { @class = "nav-link waves-effect dropdown-item" })
+        
+        
+      
+
+    </div>
+    
+   
+        @Html.ActionLink("Пользователи", "Index", "User", null, new { @class = "btn btn-secondary btn-sm" })
+  
+    
+    @Html.ActionLink("Выйти", "LogOff", "Account", null, new {@class = "btn btn-primary btn-sm waves-effect white-text"})
+</div>
+}

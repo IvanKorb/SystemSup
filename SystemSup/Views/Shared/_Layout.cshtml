@@ -1,0 +1,84 @@
+﻿@using Microsoft.Ajax.Utilities
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@ViewBag.Title</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="../../Content/mdb/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="../../Content/mdb/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="../../Content/mdb/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+        <div class="container">
+
+            @Html.ActionLink("System SUP", "Index", "Request", null, new { @class = "nav-link waves-effect navbar-brand blue-text" })
+
+            <button class="navbar-toggler" type="button"
+                    data-toggle="collapse" data-target="#navbarContent"
+                    aria-controls="navbarContent" aria-expanded="False" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                @Html.Partial("_Admin")
+                @Html.Partial("_Moderator")
+                @Html.Partial("_Distributed")
+                @Html.Partial("_User")
+
+
+
+
+
+            </div>
+        </div>
+    </nav>
+    <div class="mt-2">/</div>
+    <main>
+        <div class="container-fluid mt-5" style="background: azure">
+            @RenderBody()
+
+        </div>
+    </main>
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="page-footer font-small blue pt-4 footer-copyright text-left py-3">
+        <div class="ml-5">
+            © 2018 System Sup
+            <br />
+            <a href="https://github.com/IvanKorb" class="fa fa-github"> Github/IvanKorb</a>
+            <br />
+            <a href="#" class="fa fa-envelope"> kor_ivan@inbox.ru</a>
+        </div>
+
+    </footer>
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="../../Content/mdb/js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="../../Content/mdb/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="../../Content/mdb/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="../../Content/mdb/js/mdb.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>
